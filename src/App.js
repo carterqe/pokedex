@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Header, Search, Pokedex } from "./components";
+import { Header, Search, Pokedex, Randomize } from "./components";
 import "./App.scss";
 
 class App extends Component {
@@ -21,8 +21,9 @@ class App extends Component {
     axios
       .get(`https://pokeapi.co/api/v2/pokemon/${query}`)
       .then(({ data }) => this.setState({ pokemon: data }))
-      .catch(({ response }) => {
-        if (response.status === 404) this.setState({ error: true });
+      .catch(error => {
+        console.log(error)
+        this.setState({ error: true });
       });
   };
 
@@ -37,6 +38,7 @@ class App extends Component {
         <Search onSearchSubmit={(q) => this.onSearchHandler(q)} />
         {error && <p style={{ color: "red" }}>pokemon not found</p>}
         <Pokedex results={pokemon} />
+        <Randomize onSearchSubmit={(q) => this.onSearchHandler(q)}/>
       </div>
     );
   }
