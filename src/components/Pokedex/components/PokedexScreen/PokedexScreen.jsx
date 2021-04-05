@@ -6,6 +6,7 @@ const PokedexScreen = ({ results }) => {
   let img = null;
 
   if (Object.keys(results).length > 0) {
+    console.log(results)
     img = results.sprites.other['official-artwork'].front_default;
   }
 
