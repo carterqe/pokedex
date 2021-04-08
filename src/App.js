@@ -10,12 +10,16 @@ class App extends Component {
     this.state = {
       error: false,
       pokemon: {},
+      pokemonId: 0
     };
   }
 
   onSearchHandler = (query) => {
     // reset to remove p tag
     this.setState({ error: false });
+    if(Number(+query)) {
+      this.setState({pokemonId: +query})
+    }
 
     // http request - query = pokemon name or ID
     axios
@@ -27,6 +31,12 @@ class App extends Component {
       });
   };
 
+  navigatePokeId = (count) => {
+    this.setState({pokemonId: this.state.pokemonId + count})
+
+    this.onSearchHandler(this.state.pokemonId)
+  }
+
   // jsx
   render() {
     const { error, pokemon } = this.state;
@@ -37,7 +47,7 @@ class App extends Component {
         <Header />
         <Search onSearchSubmit={(q) => this.onSearchHandler(q)} />
         {error && <p style={{ color: "red" }}>pokemon not found</p>}
-        <Pokedex results={pokemon} />
+        <Pokedex pokemon={pokemon} />
         <Randomize onSearchSubmit={(q) => this.onSearchHandler(q)}/>
       </div>
     );

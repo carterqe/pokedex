@@ -1,0 +1,44 @@
+.search-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    .search-bar {
+        display: flex;
+        height: 80px;
+        width: 320px;
+        justify-content: center;
+        position: relative;
+        &__img {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+        .input {
+            height: 50px;
+            width: 250px;
+            background-color: rgba(128, 128, 128, 0);
+            border: none;
+            // outline: 2px solid #616161;
+            // outline-offset: 8px;
+            font-family: "VT323", monospace;
+            font-size: 30px;
+            color: rgb(0, 0, 0);
+            position: relative;
+            left: 0px;
+            top: 15px;
+            z-index: 2;
+            outline: none;
+        }
+        .magnifying-glass {
+            height: 40px;
+            width: auto;
+            box-sizing: border-box;
+            cursor: pointer;
+            position: absolute;
+            z-index: 2;
+            right: 0px;
+            top: 23px;
+        }
+    }
+}
