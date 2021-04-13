@@ -53,7 +53,7 @@ class Pokedex extends Component {
           </div>
           
           <div className="screen-right">
-            <p>
+            {/* <p>
               {
                 Object.keys(pokemon).length > 0 && pokemon.name
               }
@@ -62,7 +62,11 @@ class Pokedex extends Component {
               {
                 Object.keys(pokemon).length > 0 && `${pokemon.height} Feet`
               }
-            </p>
+            </p> */}
+            <div className="screen-right__top">
+              <div className="grey-box"></div>
+              <div className="blue-box"></div>
+            </div>
           </div>
         </div>
       </div>

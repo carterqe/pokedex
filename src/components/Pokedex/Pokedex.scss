@@ -35,6 +35,7 @@
       width: 44px;
       border-radius: 50%;
       border: black 2px solid;
+      animation: flashing 1s infinite;
     }
     .little {
       display: flex;
@@ -42,9 +43,11 @@
       margin-top: 8px;
       .red {
         background-color: #FF0104;
+        animation: red 1s infinite;
       }
       .yellow {
         background-color: #FFCB65;
+        animation: yellow 1s infinite;
       }
       .green {
         background-color: #31CB65;
@@ -172,4 +175,56 @@
   height: 240px;
   border-top-left-radius: 0;
   border-left: none;
+  &__top {
+    height: 60%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    .grey-box {
+      height: 60px;
+      width: 120px;
+      background-color: #c4c4c4;
+      border: 1px solid black;
+      border-radius: 5px 5px 0 0;
+      border-bottom: none;
+    }
+    .blue-box {
+      height: 50px;
+      width: 120px;
+      background-color: #7BA9F7;
+      border: 1px solid black;
+      border-radius: 0 0 5px 5px;
+    }
+  }
+}
+@keyframes flashing {
+  0% {background-color: #3297cb;}
+  50% {background-color: #a3cadf;}
+  100% {background-color: #489fca}
+}
+
+@keyframes red {
+  0% {background-color: #FF0104;}
+  16% {background-color: #d80004;}
+  33% {background-color: #FF0104;}
+
+  100% {background-color: #FF0104;};
+}
+
+@keyframes yellow {
+  0% {background-color: #FFCB65;}
+
+  33% {background-color: #FFCB65;}
+  48% {background-color: #c7a052;}
+  66% {background-color: #FFCB65;}
+
+  100% {background-color: #FFCB65;};
+}
+
+@keyframes green {
+  0% {background-color: #3297cb;}
+  50% {background-color: #a3cadf;}
+  100% {background-color: #489fca}
 }
